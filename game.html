@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+  <script>
+
+    function computerPlay() { //randomly returns 'Rock', 'Paper', or 'Scissors'
+
+        switch(Math.floor(Math.random() * 3)) {
+            case 0:
+                return "Rock";
+                break;
+            case 1:
+                return "Scissors";
+                break;
+            case 2:
+                return "Paper";
+                break;
+        }
+    }
+
+    function userPlay(){
+      return prompt("Choose your weapon: Rock, Paper, Scissors");
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        let winner = ""
+        playerSelection = playerSelection.toLowerCase();
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+        if ((playerSelection === "Rock" && computerSelection === "Paper") ||
+            (playerSelection === "Scissors" && computerSelection === "Rock") ||
+            (playerSelection === "Paper" && computerSelection === "Scissors")){
+                console.log("You lose! " + computerSelection + " beats " + playerSelection + ".");
+                return 'lose';
+        }
+        else if ((playerSelection === "Rock" && computerSelection === "Scissors") ||
+            (playerSelection === "Scissors" && computerSelection === "Paper") ||
+            (playerSelection === "Paper" && computerSelection === "Rock")){
+                console.log("You win! " + playerSelection + " beats " + computerSelection + ".");
+                return 'win';
+        }
+        else if (playerSelection === computerSelection){
+            console.log("You both chose " + playerSelection + ".");
+            return 'tie';
+        }
+        else {
+            return NaN;
+        }
+    }
+
+    function game() {
+        alert("Welcome to Rock, Paper, Scissors.");
+        alert("5 Rounds. Good Luck!")
+        let computerScore = 0;
+        let playerScore = 0;
+        let drawScore = 0;
+
+        for (i = 0; i < 5; i++) {
+            let playerSelection = userPlay();
+            let computerSelection = computerPlay();
+            console.log("Round " + String(i + 1));
+            result = playRound(playerSelection, computerSelection);
+
+            if (result == 'tie') {
+                drawScore++
+                console.log("The current score is player: " + playerScore + ". Computer " + computerScore + ". Draws: " + drawScore + ".");
+                continue;
+            }
+            else if (result == 'win') {
+                playerScore++
+                console.log("The current score is player: " + playerScore + ". Computer " + computerScore + ". Draws: " + drawScore + ".");
+            }
+            else if (result == 'lose') {
+                computerScore++
+                console.log("The current score is player: " + playerScore + ". Computer " + computerScore + ". Draws: " + drawScore + ".");
+            }
+            else {
+            continue;
+            }
+
+        }
+        console.log("Game Over.");
+        console.log("The final score is:");
+        console.log("Player: " + playerScore + ". Computer: " + computerScore + ". Draws: " + drawScore + ".");
+    }
+
+    game()
+  </script>
+</body>
