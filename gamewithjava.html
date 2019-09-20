@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = 'UTF-8'/>
+        <title>Rock Paper Scissors Game</title>
+    </head>
+    <body>
+        <div><span> ==== Please click Rock, Paper, or Scissors to play ===</span>
+        </div>
+        <br><br>
+        <div class="arena">
+            <button class="choice" id="Rock">Rock</button>
+            <button class="choice" id="Paper">Paper</button>
+            <button class="choice" id="Scissors">Scissors</button>
+            <table>
+                <tr>
+                    <th>Computer Choice</th>
+                    <th>Your Choice</th>
+                </tr>
+                <tr>
+                    <td id="computer_choice">None Yet!</td>
+                    <td id="player_choice">None Yet!</td>
+                </tr>
+                <tr>
+                    <th>Computer Score</th>
+                    <th>Your Score</th>
+                </tr>
+                <tr>
+                    <td id="computer_score"></td>
+                    <td id="player_score"></td>
+                </tr>
+            </table>
+            <div id="result_display"></div>
+            <div id="final_result"></div>
+            <button id="reset">Play Again?</button>
+            <script type="text/javascript" src="gamewithjava.js"></script>
+        </div>
+    </body>
+</html>
